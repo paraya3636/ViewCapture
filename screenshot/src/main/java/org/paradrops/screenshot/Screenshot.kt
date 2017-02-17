@@ -11,20 +11,11 @@ class Screenshot(val targetView: View, showedView: Boolean) {
     val bitmap: Bitmap
 
     init {
-        if (!showedView) {
-            targetView.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        bitmap = if (showedView) {
+            initShowedViewBitmap()
+        } else {
+            initViewBitmap()
         }
-
-        bitmap = let {
-            val width = targetView.measuredWidth
-            val height = targetView.measuredHeight
-            Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-        }
-
-        if (!showedView) {
-            targetView.layout(0, 0, targetView.measuredWidth, targetView.measuredHeight)
-        }
-        targetView.draw(Canvas(bitmap))
     }
 
     fun output(file: File, size: Size?, format: Bitmap.CompressFormat, quality: Int) : Boolean {
@@ -36,5 +27,26 @@ class Screenshot(val targetView: View, showedView: Boolean) {
                 return scaledBitmap.compress(format, quality, it)
             }
         }
+    }
+
+    private fun initShowedViewBitmap() : Bitmap {
+        targetView.isDrawingCacheEnabled = true
+        val bitmap = Bitmap.createBitmap(targetView.drawingCache)
+        targetView.isDrawingCacheEnabled = false
+        return bitmap
+    }
+
+    private fun initViewBitmap() : Bitmap{
+        targetView.measure(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+        val bitmap = let {
+            val width = targetView.measuredWidth
+            val height = targetView.measuredHeight
+            Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
+        }
+
+        targetView.layout(0, 0, targetView.measuredWidth, targetView.measuredHeight)
+        targetView.draw(Canvas(bitmap))
+        return bitmap
     }
 }
