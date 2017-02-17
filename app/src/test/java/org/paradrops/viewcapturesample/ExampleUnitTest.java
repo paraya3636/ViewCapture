@@ -1,4 +1,4 @@
-package org.paradrops.screenshot;
+package org.paradrops.viewcapturesample;
 
 import org.junit.Test;
 

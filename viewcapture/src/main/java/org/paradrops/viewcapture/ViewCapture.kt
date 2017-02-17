@@ -1,4 +1,4 @@
-package org.paradrops.screenshot
+package org.paradrops.viewcapture
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import java.io.File
 import java.io.FileOutputStream
 
-class Screenshot(val targetView: View, showedView: Boolean) {
+class ViewCapture(val targetView: View, showedView: Boolean) {
     val bitmap: Bitmap
 
     init {

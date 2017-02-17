@@ -1,4 +1,4 @@
-package org.paradrops.screenshotsample;
+package org.paradrops.viewcapture;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("org.paradrops.screenshotsample", appContext.getPackageName());
+        assertEquals("org.paradrops.screenshot.test", appContext.getPackageName());
     }
 }

@@ -1,3 +1,3 @@
-package org.paradrops.screenshot
+package org.paradrops.viewcapture
 
 class Size(val width: Int, val height: Int)
