@@ -1,1 +1,1 @@
-include ':app', ':screenshot'
+include ':app', ':viewcapture'

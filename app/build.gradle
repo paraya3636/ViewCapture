@@ -6,7 +6,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "org.paradrops.screenshotsample"
+        applicationId "org.paradrops.viewcapturesample"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -35,5 +35,5 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
-    compile project(":screenshot")
+    compile project(':viewcapture')
 }
