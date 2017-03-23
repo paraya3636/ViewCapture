@@ -16,7 +16,17 @@ class MainActivity : AppCompatActivity() {
 
         showedViewCaptureButton.setOnClickListener {
             val file = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "ShowedViewCapture" + ".jpg")
-            val result = ViewCapture(activityMain.rootView, true).output(file, null, Bitmap.CompressFormat.JPEG, 80)
+            val result = ViewCapture().captureShowedViewBitmap(contentView).output(file, null, Bitmap.CompressFormat.JPEG, 80)
+            if (result) {
+                Toast.makeText(this, "Success! : " + file.path, Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "Error! : " + file.path, Toast.LENGTH_LONG).show()
+            }
+        }
+
+        scrolledViewCaptureButton.setOnClickListener {
+            val file = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "ScrolledViewCapture" + ".jpg")
+            val result = ViewCapture().captureShowedScrollViewBitmap(contentView).output(file, null, Bitmap.CompressFormat.JPEG, 80)
             if (result) {
                 Toast.makeText(this, "Success! : " + file.path, Toast.LENGTH_LONG).show()
             } else {
@@ -26,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         anyViewCaptureButton.setOnClickListener {
             val file = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "AnyViewCapture" + ".jpg")
-            val result = ViewCapture(activityMain.rootView, false).output(file, null, Bitmap.CompressFormat.JPEG, 80)
+            val result = ViewCapture().captureGoneViewBitmap(contentView).output(file, null, Bitmap.CompressFormat.JPEG, 80)
             if (result) {
                 Toast.makeText(this, "Success! : " + file.path, Toast.LENGTH_LONG).show()
             } else {
