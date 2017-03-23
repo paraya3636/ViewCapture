@@ -11,7 +11,7 @@ ViewCapture is take view bitmap capture for Android.
 app gradle file
 
 dependencies {
-    compile 'com.github.paraya3636:ViewCapture:0.1'
+    compile 'com.github.paraya3636:ViewCapture:0.2'
 }
 repositories {
     maven { url 'https://jitpack.io' }
@@ -24,7 +24,7 @@ minSdkVersion:15 Android4.0.3+
 
 # License
 
-    Copyright 2016 paraya3636
+    Copyright 2017 paraya3636
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
